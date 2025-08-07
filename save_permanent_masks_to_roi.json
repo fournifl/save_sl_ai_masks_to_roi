@@ -1,0 +1,99 @@
+{
+  "project_dir": "/home/florent/Projects/",
+  "output_dir" : "/home/florent/Documents/automation_parameters/rois/permanent_masks/",
+  "camera":
+  [
+    {
+      "id": 1,
+      "permanent_mask_file": "{project_dir}/Etretat/CAM1/Shoreline_detection_with_AI/permanent_land_and_aquatic_projected_z0/permanent_other_land_water_P_A_CAM1_2fps_600s_20210627_06_00.pkl"
+    },
+    {
+      "id": 2,
+      "permanent_mask_file": "{project_dir}/Etretat/Etretat_sud/Shoreline_detection_with_AI/permanent_land_and_aquatic_projected_z0/permanent_other_land_water_P_A_Etretat_sud_2fps_600s_20240410_17_20.pkl"
+    },
+    {
+      "id": 3,
+      "permanent_mask_file": "{project_dir}/Etretat/CAM3/Shoreline_detection_with_AI/permanent_land_and_aquatic_projected_z0/permanent_other_land_water_P_A_CAM3_2fps_600s_20190831_05_20.pkl"
+    },
+    {
+      "id": 4,
+      "permanent_mask_file": "{project_dir}/Cannes/martinez/Shoreline_detection_with_AI/permanent_land_and_aquatic_projected_z0/permanent_other_land_water_P_A_martinez_2fps_600s_20200505_11_00.pkl"
+    },
+    {
+      "id": 13,
+      "permanent_mask_file": "{project_dir}/Port-la-Nouvelle/Phare_1/Shoreline_detection_with_AI/permanent_land_and_aquatic_projected_z0/permanent_other_land_water_P_A_Phare_1_2fps_600s_20231006_06_00.pkl"
+    },
+    {
+      "id": 14,
+      "permanent_mask_file": "{project_dir}/Port-la-Nouvelle/Phare_2/Shoreline_detection_with_AI/permanent_land_and_aquatic_projected_z0/permanent_other_land_water_P_A_Phare_2_2fps_600s_20231006_06_00.pkl"
+    },
+    {
+      "id": 15,
+      "permanent_mask_file": "{project_dir}/Port-la-Nouvelle/Phare_3/Shoreline_detection_with_AI/permanent_land_and_aquatic_projected_z0/permanent_other_land_water_P_A_Phare_3_2fps_600s_20231006_06_00.pkl"
+    },
+    {
+      "id": 16,
+      "permanent_mask_file": "{project_dir}/Palavas-les-flots/Cristal_1/Shoreline_detection_with_AI/permanent_land_and_aquatic_projected_z0/permanent_other_land_water_P_A_cristal_1_2fps_600s_20210408_10_00.pkl"
+    },
+    {
+      "id": 17,
+      "permanent_mask_file": "{project_dir}/Palavas-les-flots/Cristal_2/Shoreline_detection_with_AI/permanent_land_and_aquatic_projected_z0/permanent_other_land_water_P_A_cristal_2_2fps_600s_20210412_16_00.pkl"
+    },
+    {
+      "id": 18,
+      "permanent_mask_file": "{project_dir}/Palavas-les-flots/Cristal_3/Shoreline_detection_with_AI/permanent_land_and_aquatic_projected_z0/permanent_other_land_water_P_A_cristal_3_2fps_600s_20210503_10_00.pkl"
+    },
+    {
+      "id": 19,
+      "permanent_mask_file": "{project_dir}/Palavas-les-flots/St_Pierre_1/Shoreline_detection_with_AI/permanent_other/permanent_other_land_water_P_A_St_Pierre_1_20210406_10_00.pkl"
+    },
+    {
+      "id": 20,
+      "permanent_mask_file": "{project_dir}/Palavas-les-flots/St_Pierre_2/Shoreline_detection_with_AI/permanent_other/permanent_other_land_water_P_A_St_Pierre_2_20210406_10_00.pkl"
+    },
+    {
+      "id": 21,
+      "permanent_mask_file": "{project_dir}/Palavas-les-flots/St_Pierre_3/Shoreline_detection_with_AI/permanent_other/permanent_other_land_water_P_A_St_Pierre_3_2fps_600s_20210525_12_00.pkl"
+    },
+    {
+      "id": 29,
+      "permanent_mask_file": "{project_dir}/Larmor_plage/Kerguelen_1/Shoreline_detection_with_AI/permanent_land_and_aquatic_projected_z0/permanent_other_land_water_P_A_Kerguelen_1_2fps_600s_20230123_12_00.pkl"
+    },
+    {
+      "id": 30,
+      "permanent_mask_file": "{project_dir}/Larmor_plage/Kerguelen_2/Shoreline_detection_with_AI/permanent_land_and_aquatic_projected_z0/permanent_other_land_water_P_A_Kerguelen_2_2fps_600s_20230123_12_00.pkl"
+    },
+    {
+      "id": 31,
+      "permanent_mask_file": "{project_dir}/Larmor_plage/Kerguelen_3/Shoreline_detection_with_AI/permanent_land_and_aquatic_projected_z0/permanent_other_land_water_P_A_Kerguelen_3_2fps_600s_20230124_12_00.pkl"
+    },
+    {
+      "id": 36,
+      "permanent_mask_file": "{project_dir}/St_tropez/Rayol_2/Shoreline_detection_with_AI/permanent_land_and_aquatic_projected_z0/permanent_other_land_water_P_A_Rayol_2_2fps_600s_20231229_13_00.pkl"
+    },
+    {
+      "id": 37,
+      "permanent_mask_file": "{project_dir}/St_tropez/Rayol_3/Shoreline_detection_with_AI/permanent_land_and_aquatic_projected_z0/permanent_other_land_water_P_A_Rayol_3_2fps_600s_20231229_15_00.pkl"
+    },
+    {
+      "id": 38,
+      "permanent_mask_file": "{project_dir}/St_tropez/Garonnette_1/Shoreline_detection_with_AI/permanent_other/permanent_other_land_water_P_A_Garonnette_1_2fps_600s_20221217_12_00.pkl"
+    },
+    {
+      "id": 39,
+      "permanent_mask_file": "{project_dir}/St_tropez/Garonnette_2/Shoreline_detection_with_AI/permanent_other/permanent_other_land_water_P_A_Garonnette_2_2fps_600s_20221218_08_00.pkl"
+    },
+    {
+      "id": 40,
+      "permanent_mask_file": "{project_dir}/St_tropez/Garonnette_3/Shoreline_detection_with_AI/permanent_other/permanent_other_land_water_P_A_Garonnette_3_2fps_600s_20230302_17_00.pkl"
+    },
+    {
+      "id": 42,
+      "permanent_mask_file": "{project_dir}/NOCCRO/Biarritz/Shoreline_detection_with_AI/permanent_land_and_aquatic_projected_z0/permanent_other_land_water_P_A_CAM42_20240430_170000.pkl"
+    },
+    {
+      "id": 44,
+      "permanent_mask_file": "{project_dir}/Etretat/Etretat_central2/Shoreline_detection_with_AI/permanent_other/permanent_other_land_water_P_A_Etretat_central2_2fps_600s_20240410_18_00.pkl"
+    }
+  ]
+}
