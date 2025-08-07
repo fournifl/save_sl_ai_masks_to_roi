@@ -1,0 +1,11 @@
+{
+  "training_data_pk_dirs": "/home/florent/dev/wavecams/scripts/Shoreline_detection_with_AI_unlocked/training_data/bug_corrected_nd/",
+  "output_dir" : "/home/florent/Documents/automation_parameters/rois/training_data_masks/",
+  "camera":
+  [
+    {
+      "id": 42,
+      "training_data_pk_dir": "{training_data_pk_dirs}/Biarritz_bellevue/"
+    }
+  ]
+}
