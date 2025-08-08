@@ -1,2 +1,5 @@
 matplotlib
 opencv-python-headless
+PyQt5
+wns_api_clients @ git+ssh://git@github.com/wavesnsee/wns_api_clients@main
+pandas
