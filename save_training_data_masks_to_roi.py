@@ -1,7 +1,13 @@
 import pickle as pk
 import matplotlib.pyplot as plt
+from datetime import timedelta, datetime
+from httpx_auth import OAuth2ResourceOwnerPasswordCredentials
+from wns_api_clients import Client as ApiClient
+from wns_api_clients.api.camera_blobs import read_camera_blobs
 import cv2
+import os
 import argparse
+import pandas as pd
 from pathlib import Path
 import numpy as np
 import json
@@ -80,8 +86,37 @@ def create_rois(contours_sand, contours_whitewater, contours_water):
 
     return list_roi
 
+def create_df(resp_api):
+
+    filenames_A = []
+    dates = []
+    blob_id_A = []
+
+    for resp in resp_api:
+        dates.append(resp.date)
+        filenames_A.append(resp.filename)
+        blob_id_A.append(resp.id)
+
+    df = pd.DataFrame({'date': dates, 'filename': filenames_A, 'blob_id_A': blob_id_A})
+    df.set_index('date', inplace=True)
+    return df
+
+
 # read json parameters
 training_data_pk_dirs, output_dir, camera = get_params()
+
+# create objet ApiCLient
+api_url: str = "https://app.wavesnsee.com"
+api_client = ApiClient(
+        base_url=api_url,
+        httpx_args={
+            "auth": OAuth2ResourceOwnerPasswordCredentials(
+                token_url=f"{api_url}/api/auth/access-token",
+                username=os.getenv('user_wns_api_client'),
+                password=os.getenv('passwd_wns_api_client'),
+            ),
+        },
+    )
 
 # loop through cameras
 for cam in camera:
@@ -89,7 +124,21 @@ for cam in camera:
     training_data_mask_dir = Path(cam['training_data_pk_dir'].format(training_data_pk_dirs=training_data_pk_dirs))
 
     # list pk files
-    ls = training_data_mask_dir.glob('*.pkl')
+    ls = sorted(training_data_mask_dir.glob('*.pkl'))
+
+    # get start and end dates of pk files
+    start_str = datetime.strptime(ls[0].stem.split('_')[-3], '%Y%m%d').strftime('%Y-%m-%d')
+    end_str_tmp = datetime.strptime(ls[-1].stem.split('_')[-3],'%Y%m%d') + timedelta(1)
+    end_str = end_str_tmp.strftime('%Y-%m-%d')
+
+    # api request read_camera_blobs
+    resp_api = read_camera_blobs.sync(
+        client=api_client,
+        type_id=3,
+        camera_id=id,
+        start=start_str,
+        end=end_str
+    )
 
     # loop through training_data files
     for pk_file in ls:
@@ -111,8 +160,20 @@ for cam in camera:
         dico['img_shape'] = [width, height]
         dico['rois'] = list_roi
 
+
+        # get date ok pk file
+        date_pk_file = datetime.strptime('-'.join(pk_file.stem.split('_')[-3:]), '%Y%m%d-%H-%M').strftime('%Y-%m-%d %H:%M')
+        date_pk_file = pd.to_datetime(date_pk_file)
+
+        # construct output json filename
+        df = create_df(resp_api)
+        df.index = df.index.tz_localize(None)
+        iloc_idx = df.index.get_indexer([date_pk_file], method='nearest')
+        A_name = df['filename'][iloc_idx[0]]
+        output_filename = f'training_data_masks_P_{Path(A_name).stem}.json'
+
         # save dict to json
         json_str = json.dumps(dico, indent=2)
-        output_filename = f'training_data_masks_P_A_CAM{id}_2{pk_file.stem.split('_2')[1]}.json'
         with open(output_dir.joinpath(output_filename), "w") as f:
             f.write(json_str)
+
