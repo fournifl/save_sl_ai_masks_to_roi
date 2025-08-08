@@ -1,6 +1,6 @@
 {
   "project_dir": "/home/florent/Projects/",
-  "output_dir" : "/home/florent/Documents/automation_parameters/rois/permanent_masks/",
+  "output_dir" : "/home/florent/Documents/automation_parameters/rois/permanent_rois/",
   "camera":
   [
     {
