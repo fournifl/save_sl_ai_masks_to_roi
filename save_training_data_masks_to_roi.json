@@ -1,6 +1,6 @@
 {
   "training_data_pk_dirs": "/home/florent/dev/wavecams/scripts/Shoreline_detection_with_AI_unlocked/training_data/bug_corrected_nd/",
-  "output_dir" : "/home/florent/Documents/automation_parameters/rois/training_data_masks/",
+  "output_dir" : "/home/florent/Documents/automation_parameters/rois/training_data_rois/",
   "camera":
   [
     {
