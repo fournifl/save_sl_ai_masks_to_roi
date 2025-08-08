@@ -29,16 +29,17 @@ def get_params():
 
 def get_permanent_masks(pk_file):
     permanent_mask = pk.load(open(pk_file, 'rb'))
+    width, height = permanent_mask.shape
     land = 255 * (permanent_mask == 4)
     land = land.astype(np.uint8)
     water = 255 * (permanent_mask == 5)
     water = water.astype(np.uint8)
-    return land, water
+    return land, water, width, height
 
 def find_contours(arr, visu=False):
     contours, hierarchy = cv2.findContours(arr, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     if visu:
-        image_contours = np.zeros((land.shape[0], land.shape[1], 1), np.uint8)
+        image_contours = np.zeros((arr.shape[0], arr.shape[1], 1), np.uint8)
         cv2.drawContours(image_contours, contours, -1, (255, 255, 255), 3)
         plt.imshow(image_contours)
         plt.show()
@@ -74,10 +75,9 @@ for cam in camera:
     permanent_mask_file = cam['permanent_mask_file'].format(project_dir=project_dir)
 
     # permanent land, water
-    land, water = get_permanent_masks(permanent_mask_file)
+    land, water, width, height = get_permanent_masks(permanent_mask_file)
 
     # find contours
-    contours = {}
     contours_land = find_contours(land)
     contours_water = find_contours(water)
 
@@ -86,7 +86,7 @@ for cam in camera:
 
     # save rois and img_shape to dict
     dico = {}
-    dico['img_shape'] = [land.shape[0], land.shape[1]]
+    dico['img_shape'] = [width, height]
     dico['rois'] = list_roi
 
     # save dict to json
