@@ -91,5 +91,5 @@ for cam in camera:
 
     # save dict to json
     json_str = json.dumps(dico, indent=2)
-    with open(output_dir.joinpath(f'permanent_mask_cam{id}.json'), "w") as f:
+    with open(output_dir.joinpath(f'permanent_mask_rois_CAM{id}.json'), "w") as f:
         f.write(json_str)
