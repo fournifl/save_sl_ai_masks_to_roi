@@ -171,7 +171,7 @@ for cam in camera:
         iloc_idx = df.index.get_indexer([date_pk_file], method='nearest')
         A_name = df['filename'][iloc_idx[0]]
         # in a future verison of library, prefer probably (check it): A_name = df['filename'].iloc[iloc_idx[0]]
-        output_filename = f'training_data_masks_P_{Path(A_name).stem}.json'
+        output_filename = f'training_data_rois_P_{Path(A_name).stem}.json'
 
         # save dict to json
         json_str = json.dumps(dico, indent=2)
