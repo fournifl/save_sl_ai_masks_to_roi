@@ -52,14 +52,14 @@ def create_rois(contours_land, contours_water):
     for i in range(len(contours_land)):
         contours = np.squeeze(contours_land[i])
         roi = {}
-        roi['category'] = 'land'
+        roi['category'] = 'other-land-features'
         roi['points'] = contours.tolist()
         list_roi.append(roi)
 
     for i in range(len(contours_water)):
         contours = np.squeeze(contours_water[i])
         roi = {}
-        roi['category'] = 'water'
+        roi['category'] = 'aquatic'
         roi['points'] = contours.tolist()
         list_roi.append(roi)
 
